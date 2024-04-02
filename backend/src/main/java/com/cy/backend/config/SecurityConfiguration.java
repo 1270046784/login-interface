@@ -21,9 +21,6 @@ public class SecurityConfiguration {
 
     /**
      * 登录过滤链路
-     * @param http
-     * @return
-     * @throws Exception
      */
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -48,10 +45,6 @@ public class SecurityConfiguration {
 
     /**
      * 登录成功返回json
-     * @param request
-     * @param response
-     * @param authentication
-     * @throws IOException
      */
     public void onAuthenticationSuccess(
             HttpServletRequest request, HttpServletResponse response, Authentication authentication
@@ -62,10 +55,6 @@ public class SecurityConfiguration {
 
     /**
      * 登陆失败返回json
-     * @param request
-     * @param response
-     * @param exception
-     * @throws IOException
      */
     public void onAuthenticationFailure(
             HttpServletRequest request, HttpServletResponse response, AuthenticationException exception
