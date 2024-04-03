@@ -45,6 +45,7 @@ public class SecurityConfiguration {
     ) throws Exception {
         http.
                 authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/api/auth/valid-email").permitAll()  // 放行验证邮件请求
                         .anyRequest().authenticated()
                 )  // 认证所有请求
                 .formLogin(form -> form
