@@ -17,6 +17,9 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.io.IOException;
 
@@ -43,12 +46,32 @@ public class SecurityConfiguration {
                 )  //登录
                 .logout(logout -> logout
                         .logoutUrl("/api/auth/logout")
+                        .logoutSuccessHandler(this::onAuthenticationSuccess)
                 )  // 登出
                 .exceptionHandling(exception -> exception
                         .authenticationEntryPoint(this::onAuthenticationFailure)
                 )  // 登录异常
+                .cors(cors -> cors
+                        .configurationSource(this.configurationSource())
+                )  // 允许跨域请求
                 .csrf(AbstractHttpConfigurer::disable);
         return http.build();
+    }
+
+    /**
+     * 允许前端跨域请求
+     * @return 允许跨域的资源
+     */
+    private CorsConfigurationSource configurationSource() {
+        CorsConfiguration cors = new CorsConfiguration();
+        cors.addAllowedOriginPattern("http://localhost:5173");
+        cors.setAllowCredentials(true);
+        cors.addAllowedHeader("*");
+        cors.addAllowedMethod("*");
+        cors.addExposedHeader("*");
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", cors);
+        return source;
     }
 
     /**
@@ -78,7 +101,11 @@ public class SecurityConfiguration {
             HttpServletRequest request, HttpServletResponse response, Authentication authentication
     ) throws IOException {
         response.setCharacterEncoding("utf-8");
-        response.getWriter().write(JSONObject.toJSONString(RestBean.success("登录成功")));
+        if (request.getRequestURI().endsWith("/login")) {
+            response.getWriter().write(JSONObject.toJSONString(RestBean.success("登录成功")));
+        } else if (request.getRequestURI().endsWith("/logout")) {
+            response.getWriter().write(JSONObject.toJSONString(RestBean.success("成功登出")));
+        }
     }
 
     /**
