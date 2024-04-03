@@ -4,34 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba768bea-6d70-4b81-b75d-1bed1f24ea32" name="更改" comment="v0.1.2 成功接入数据库">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/welcome/LoginPage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/net/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/views/IndexView.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/views/WelcomeView.vue" afterDir="false" />
+    <list default="true" id="ba768bea-6d70-4b81-b75d-1bed1f24ea32" name="更改" comment="v0.1.3 实现前端发送请求">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cy/backend/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cy/backend/config/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/assets/base.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/assets/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/assets/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/HelloWorld.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/TheWelcome.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/WelcomeItem.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/icons/IconCommunity.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/icons/IconDocumentation.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/icons/IconEcosystem.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/icons/IconSupport.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/icons/IconTooling.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/AboutView.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/HomeView.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vite.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +161,7 @@
       <workItem from="1712059867360" duration="4000" />
       <workItem from="1712060034350" duration="3000" />
       <workItem from="1712060044123" duration="16000" />
-      <workItem from="1712060068515" duration="17716000" />
+      <workItem from="1712060068515" duration="21556000" />
     </task>
     <task id="LOCAL-00001" summary="v0.1.1 配置登录借口，发送登录成功或失败json文件">
       <option name="closed" value="true" />
@@ -236,7 +211,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712075465322</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="v0.1.3 实现前端发送请求">
+      <option name="closed" value="true" />
+      <created>1712120759771</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1712120759771</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,7 +243,8 @@
     <MESSAGE value="v0.1.1 配置登录借口，发送登录成功或失败json文件" />
     <MESSAGE value="v0.1.1 配置登录接口，发送登录成功或失败json文件" />
     <MESSAGE value="v0.1.2 成功接入数据库" />
-    <option name="LAST_COMMIT_MESSAGE" value="v0.1.2 成功接入数据库" />
+    <MESSAGE value="v0.1.3 实现前端发送请求" />
+    <option name="LAST_COMMIT_MESSAGE" value="v0.1.3 实现前端发送请求" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

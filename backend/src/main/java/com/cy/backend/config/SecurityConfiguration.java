@@ -17,10 +17,13 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import javax.sql.DataSource;
 import java.io.IOException;
 
 @Configuration
@@ -28,13 +31,18 @@ import java.io.IOException;
 public class SecurityConfiguration {
 
     @Resource
-    private AuthorizeService authorizeService;
+    private AuthorizeService authorizeService;  // 登录服务
+
+    @Resource
+    private DataSource dataSource;  // 登录数据源
 
     /**
      * 登录过滤链路
      */
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain filterChain(
+            HttpSecurity http, PersistentTokenRepository tokenRepository
+    ) throws Exception {
         http.
                 authorizeHttpRequests(auth -> auth
                         .anyRequest().authenticated()
@@ -48,6 +56,11 @@ public class SecurityConfiguration {
                         .logoutUrl("/api/auth/logout")
                         .logoutSuccessHandler(this::onAuthenticationSuccess)
                 )  // 登出
+                .rememberMe(remember -> remember
+                        .rememberMeParameter("remember")
+                        .tokenRepository(tokenRepository)
+                        .tokenValiditySeconds(7 * 24 * 3600)  // 记忆时限设置为7天
+                )
                 .exceptionHandling(exception -> exception
                         .authenticationEntryPoint(this::onAuthenticationFailure)
                 )  // 登录异常
@@ -56,6 +69,18 @@ public class SecurityConfiguration {
                 )  // 允许跨域请求
                 .csrf(AbstractHttpConfigurer::disable);
         return http.build();
+    }
+
+    /**
+     * 建立数据库令牌仓库
+     * @return 数据库令牌仓库
+     */
+    @Bean
+    public PersistentTokenRepository tokenRepository() {
+        JdbcTokenRepositoryImpl jdbcTokenRepository = new JdbcTokenRepositoryImpl();
+        jdbcTokenRepository.setDataSource(dataSource);  // 设置数据源
+//        jdbcTokenRepository.setCreateTableOnStartup(true);  // 在建表时创建令牌仓库，仅第一次设置
+        return jdbcTokenRepository;
     }
 
     /**
