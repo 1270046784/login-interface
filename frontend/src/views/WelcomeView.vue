@@ -12,8 +12,12 @@
             <div style="font-size: 30px; font-weight: bold">欢迎使用本系统</div>
             <div style="margin-top: 10px">本系统仅用于学习用途</div>
         </div>
-        <div style="width: 400px; background-color: white">
-            <router-view/>
+        <div style="width: 400px; background-color: white; z-index: 1">
+            <router-view v-slot="{ Component }">
+                <transition name="el-fade-in-linear">
+                    <component :is="Component"/>
+                </transition>
+            </router-view>
         </div>
     </div>
 </template>
