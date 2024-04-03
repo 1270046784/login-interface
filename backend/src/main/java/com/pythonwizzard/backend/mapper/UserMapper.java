@@ -1,6 +1,6 @@
-package com.cy.backend.mapper;
+package com.pythonwizzard.backend.mapper;
 
-import com.cy.backend.entity.Account;
+import com.pythonwizzard.backend.entity.Account;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 

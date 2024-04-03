@@ -1,7 +1,7 @@
-package com.cy.backend.controller;
+package com.pythonwizzard.backend.controller;
 
-import com.cy.backend.entity.RestBean;
-import com.cy.backend.service.AuthorizeService;
+import com.pythonwizzard.backend.entity.RestBean;
+import com.pythonwizzard.backend.service.AuthorizeService;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.constraints.Email;

@@ -1,4 +1,4 @@
-package com.cy.backend.service;
+package com.pythonwizzard.backend.service;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
 

@@ -1,4 +1,4 @@
-package com.cy.backend.entity;
+package com.pythonwizzard.backend.entity;
 
 import lombok.Data;
 

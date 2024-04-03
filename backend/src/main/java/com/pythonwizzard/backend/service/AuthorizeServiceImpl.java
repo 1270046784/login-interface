@@ -1,7 +1,7 @@
-package com.cy.backend.service;
+package com.pythonwizzard.backend.service;
 
-import com.cy.backend.entity.Account;
-import com.cy.backend.mapper.UserMapper;
+import com.pythonwizzard.backend.entity.Account;
+import com.pythonwizzard.backend.mapper.UserMapper;
 import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.StringRedisTemplate;

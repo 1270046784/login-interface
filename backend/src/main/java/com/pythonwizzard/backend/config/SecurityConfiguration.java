@@ -1,8 +1,8 @@
-package com.cy.backend.config;
+package com.pythonwizzard.backend.config;
 
 import com.alibaba.fastjson2.JSONObject;
-import com.cy.backend.entity.RestBean;
-import com.cy.backend.service.AuthorizeService;
+import com.pythonwizzard.backend.entity.RestBean;
+import com.pythonwizzard.backend.service.AuthorizeService;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

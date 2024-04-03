@@ -1,4 +1,4 @@
-package com.cy.backend;
+package com.pythonwizzard.backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
