@@ -4,19 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba768bea-6d70-4b81-b75d-1bed1f24ea32" name="更改" comment="v0.1.7 迁移了后端java文件目录">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/dto/RegisterAccountDto.java" afterDir="false" />
+    <list default="true" id="ba768bea-6d70-4b81-b75d-1bed1f24ea32" name="更改" comment="v0.1.8 实现注册功能">
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/pages/ForgetPasswordPage.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/config/SecurityConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/controller/AuthorizeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/controller/AuthorizeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/entity/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/entity/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/mapper/AccountMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/dto/RegisterAccountDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/dto/RegisterAccountDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/mapper/AccountMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/mapper/AccountMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/service/AuthorizeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/service/AuthorizeService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/service/AuthorizeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/service/AuthorizeServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/welcome/RegisterPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/welcome/RegisterPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/net/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/net/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/WelcomeView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/WelcomeView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/welcome/LoginPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/pages/LoginPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/welcome/RegisterPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/pages/RegisterPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/WelcomeView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/HomePageView.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,9 +28,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="Vue Composition API Component" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Vue Composition API Component" />
       </list>
     </option>
   </component>
@@ -77,6 +78,7 @@
     "Spring Boot.BackendApplication.executor": "Run",
     "WebServerToolWindowFactoryState": "false",
     "deletionFromPopupRequiresConfirmation": "false",
+    "extract.method.default.visibility": "private",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JAVA_MODULE": "17",
@@ -166,7 +168,7 @@
       <workItem from="1712059867360" duration="4000" />
       <workItem from="1712060034350" duration="3000" />
       <workItem from="1712060044123" duration="16000" />
-      <workItem from="1712060068515" duration="48925000" />
+      <workItem from="1712060068515" duration="59888000" />
     </task>
     <task id="LOCAL-00001" summary="v0.1.1 配置登录借口，发送登录成功或失败json文件">
       <option name="closed" value="true" />
@@ -272,7 +274,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712157936380</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="v0.1.8 实现注册功能">
+      <option name="closed" value="true" />
+      <created>1712207746561</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1712207746561</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -303,7 +313,8 @@
     <MESSAGE value="v0.1.7 后端发送验证码功能实现" />
     <MESSAGE value="v0.1.6 后端发送验证码功能实现" />
     <MESSAGE value="v0.1.7 迁移了后端java文件目录" />
-    <option name="LAST_COMMIT_MESSAGE" value="v0.1.7 迁移了后端java文件目录" />
+    <MESSAGE value="v0.1.8 实现注册功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="v0.1.8 实现注册功能" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

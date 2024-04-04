@@ -16,12 +16,25 @@ public class AuthorizeController {
     @Resource
     private AuthorizeService service;
 
-    @PostMapping("/validate-email")
-    public RestBean<String> validateEmail(
+    @PostMapping("/send-to-existed-email")
+    public RestBean<String> sendToExistedEmail(
             @Email @RequestParam("email") String email,
             HttpServletRequest request
     ) {
-        String status = service.sendValidateEmail(email, request.getRemoteAddr());
+        String status = service.sendVerifyCode(email, request.getRemoteAddr(), true);
+        if (status == null) {
+            return RestBean.success("邮件已发送");
+        } else {
+            return RestBean.failure(401, status);
+        }
+    }
+
+    @PostMapping("/send-to-nonexistent-email")
+    public RestBean<String> sendToNonexistentEmail(
+            @Email @RequestParam("email") String email,
+            HttpServletRequest request
+    ) {
+        String status = service.sendVerifyCode(email, request.getRemoteAddr(), false);
         if (status == null) {
             return RestBean.success("邮件已发送");
         } else {
@@ -30,8 +43,7 @@ public class AuthorizeController {
     }
 
     @PostMapping("/register")
-    public RestBean<String> registerUser(
-//            @Valid @RequestBody RegisterAccountDto registerAccountDto,
+    public RestBean<String> registerAccount(
             @Valid RegisterAccountDto registerAccountDto,
             HttpServletRequest request
     ) {
@@ -41,9 +53,41 @@ public class AuthorizeController {
         String verifyCode = registerAccountDto.getVerifyCode();
         String ipAddress = request.getRemoteAddr();
 
-        String status = service.validateRegister(username, password, email, verifyCode, ipAddress);
+        String status = service.register(username, password, email, verifyCode, ipAddress);
         if (status == null) {
             return RestBean.success("感谢您的注册，" + username + "先生/女士");
+        } else {
+            return RestBean.failure(401, status);
+        }
+    }
+
+    @PostMapping("/validate-email")
+    public RestBean<String> validateEmail(
+            @Valid RegisterAccountDto registerAccountDto,
+            HttpServletRequest request
+    ) {
+        String email = registerAccountDto.getEmail();
+        String verifyCode = registerAccountDto.getVerifyCode();
+        String ipAddress = request.getRemoteAddr();
+
+        String status = service.validateEmail(email, verifyCode, ipAddress);
+        if (status == null) {
+            return RestBean.success("已成功校验，请重置密码");
+        } else {
+            return RestBean.failure(401, status);
+        }
+    }
+
+    @PostMapping("/reset-password")
+    public RestBean<String> resetPassword(
+            @Valid RegisterAccountDto registerAccountDto
+    ) {
+        String email = registerAccountDto.getEmail();
+        String newPassword = registerAccountDto.getPassword();
+
+        String status = service.resetPassword(email, newPassword);
+        if (status == null) {
+            return RestBean.success("成功重置密码，返回登陆界面");
         } else {
             return RestBean.failure(401, status);
         }

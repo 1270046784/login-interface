@@ -21,6 +21,10 @@ import java.util.concurrent.TimeUnit;
 @Service
 public class AuthorizeServiceImpl implements AuthorizeService {
 
+    private final static String EXCEPTION_MESSAGE = "发生错误，请联系管理员";
+    private final static String WRONG_VERIFY_CODE_MESSAGE = "验证码错误，请重新输入";
+    private final static String VERIFY_CODE_EXPIRE_MESSAGE = "验证码失效，请重新获取";
+
     @Value("${spring.mail.username}")
     private String senderEmail;  // 注入发送者
 
@@ -58,21 +62,15 @@ public class AuthorizeServiceImpl implements AuthorizeService {
                 .build();
     }
 
-    /**
-     * 发送验证码短信的实现
-     * @param email 发送的邮件地址
-     * @param ipAddress 发送的ip地址
-     * @return 返回发送状态信息
-     */
     @Override
-    public String sendValidateEmail(
-            String email,
-            String ipAddress
-    ) {
+    public String sendVerifyCode(String email, String ipAddress, boolean needEmailExisted) {
         String key = "email:" + ipAddress + ":" + email;  // 将当前邮件地址和ip地址存入redis
 
-        if (accountMapper.findAccountByNameOrEmails(email) != null) {
-            return "邮箱已被注册";
+        if (needEmailExisted && accountMapper.findAccountByNameOrEmails(email) == null) {
+            return "账号不存在";
+        }
+        if (!needEmailExisted && accountMapper.findAccountByNameOrEmails(email) != null) {
+            return "账号已注册";
         }
 
         // 判断到期时间，发邮件cd设置为60s
@@ -101,12 +99,13 @@ public class AuthorizeServiceImpl implements AuthorizeService {
             return null;
         } catch (MailException e) {
             // 对 'printStackTrace()' 的调用可能应当替换为更可靠的日志
-            return "注册失败，请联系管理员";
+            return EXCEPTION_MESSAGE;
         }
     }
 
+
     @Override
-    public String validateRegister(
+    public String register(
             String username,
             String password,
             String email,
@@ -116,20 +115,61 @@ public class AuthorizeServiceImpl implements AuthorizeService {
         String key = "email:" + ipAddress + ":" + email;
         if (Boolean.TRUE.equals(stringRedisTemplate.hasKey(key))) {
             String realVerifyCode = stringRedisTemplate.opsForValue().get(key);  // 获取实际发送的验证码
+            if (verifyCode.length() != 6) {
+                return WRONG_VERIFY_CODE_MESSAGE;
+            }
             if (realVerifyCode == null) {
-                return "验证码失效，请重新请求";
+                return VERIFY_CODE_EXPIRE_MESSAGE;
             } else if (verifyCode.equals(realVerifyCode)) {
                 password = passwordEncoder.encode(password);  // 对密码进行编码
                 if (accountMapper.registerAccount(username, password, email) > 0) {
                     return null;  // 成功验证，可进行注册
                 } else {
-                    return "注册失败，请联系管理员";
+                    return EXCEPTION_MESSAGE;
                 }
             } else {
-                return "验证码错误，请重新输入";
+                return WRONG_VERIFY_CODE_MESSAGE;
             }
         } else {
             return "请先请求邮件验证码";
         }
     }
+
+    @Override
+    public String validateEmail(String email, String verifyCode, String ipAddress) {
+        String key = "email:" + ipAddress + ":" + email;
+        if (Boolean.TRUE.equals(stringRedisTemplate.hasKey(key))) {
+            String realVerifyCode = stringRedisTemplate.opsForValue().get(key);  // 获取实际发送的验证码
+            if (verifyCode.length() != 6) {
+                return WRONG_VERIFY_CODE_MESSAGE;
+            }
+            if (realVerifyCode == null) {
+                return VERIFY_CODE_EXPIRE_MESSAGE;
+            } else if (verifyCode.equals(realVerifyCode)) {
+                return null;  // 验证码验证成功
+            } else {
+                return WRONG_VERIFY_CODE_MESSAGE;
+            }
+        } else {
+            return "请先请求邮件验证码";
+        }
+    }
+
+    @Override
+    public String resetPassword(String email, String newPassword) {
+        Account account = accountMapper.findAccountByNameOrEmails(email);
+        assert account != null: "发生错误，请联系管理员";  // 经过前面步骤，邮件地址应当存在
+
+        if (passwordEncoder.matches(newPassword, account.getPassword())) {
+            return "请输入新的密码";
+        }
+
+        newPassword = passwordEncoder.encode(newPassword);
+        if (accountMapper.updateAccountPasswordByEmail(email, newPassword) > 0) {
+            return null;
+        } else {
+            return EXCEPTION_MESSAGE;
+        }
+    }
+
 }

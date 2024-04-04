@@ -5,17 +5,21 @@ const router = createRouter({
     routes: [
         {
             path: '/',
-            name: 'welcome',
-            component: () => import('@/views/WelcomeView.vue'),
+            name: 'homepage',
+            component: () => import('@/views/HomePageView.vue'),
             children: [
                 {
                     path: '',
-                    name: 'welcome-login',
-                    component: () => import('@/components/welcome/LoginPage.vue')
+                    name: 'login',
+                    component: () => import('@/components/pages/LoginPage.vue')
                 }, {
                     path: 'register',
-                    name: 'welcome-register',
-                    component: () => import('@/components/welcome/RegisterPage.vue')
+                    name: 'register',
+                    component: () => import('@/components/pages/RegisterPage.vue')
+                }, {
+                    path: 'forget',
+                    name: 'forget-password',
+                    component: () => import('@/components/pages/ForgetPasswordPage.vue')
                 }
         ]
     }, {

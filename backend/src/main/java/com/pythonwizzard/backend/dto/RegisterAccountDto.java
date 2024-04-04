@@ -20,7 +20,6 @@ public class RegisterAccountDto {
     @Email
     private String email;
 
-    @Length(min = 6, max = 6)
     private String verifyCode;
 
 }

@@ -1,9 +1,7 @@
 package com.pythonwizzard.backend.mapper;
 
 import com.pythonwizzard.backend.entity.Account;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 @Mapper
 public interface AccountMapper {
@@ -14,4 +12,6 @@ public interface AccountMapper {
     @Insert("insert into login.accounts (username, password, email) values (#{username}, #{password}, #{email})")
     int registerAccount(String username, String password, String email);
 
+    @Update("update login.accounts set password = #{password} where email = #{email}")
+    int updateAccountPasswordByEmail(String email, String password);
 }

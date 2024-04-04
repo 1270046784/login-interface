@@ -19,7 +19,7 @@ const form = reactive({
  * @param value
  * @param callback
  */
-const validateUsername = (rule, value, callback) => {
+const usernameValidator = (rule, value, callback) => {
     if (value === '') {
         callback(new Error('用户名不能为空'))
     } else if (!/^[a-zA-Z0-9\u4e00-\u9fa5]+$/.test(value)) {
@@ -35,7 +35,7 @@ const validateUsername = (rule, value, callback) => {
  * @param value
  * @param callback
  */
-const validateConfirmPassword = (rule, value, callback) => {
+const confirmPasswordValidator = (rule, value, callback) => {
     if (value === '') {
         callback(new Error('请确认密码'))
     } else if (value !== form.password) {
@@ -50,27 +50,27 @@ const validateConfirmPassword = (rule, value, callback) => {
  */
 const rules = {
     username: [
-        { validator: validateUsername, trigger: ['blur', 'change'] },
-        { min: 2, max: 10, message: '用户名需要在2-10个字符之间', trigger: ['blur', 'change'] },
+        { validator: usernameValidator, trigger: 'blur' },
+        { min: 2, max: 10, message: '用户名需要在2-10个字符之间', trigger: 'blur' },
     ],
     password: [
-        { required: true, message: '请输入密码', trigger: ['blur', 'change'] },
-        { min: 4, max: 20, message: '密码需要在4-20个字符之间', trigger: ['blur', 'change'] },
+        { required: true, message: '请输入密码', trigger: 'blur' },
+        { min: 4, max: 20, message: '密码需要在4-20个字符之间', trigger: 'blur' },
     ],
     confirmPassword: [
-        { validator: validateConfirmPassword, trigger: ['blur', 'change'] }
+        { validator: confirmPasswordValidator, trigger: ['blur', 'change'] }
     ],
     email: [
-        { required: true, message: '请输入电子邮件地址', trigger: ['blur', 'change'] },
+        { required: true, message: '请输入电子邮件地址', trigger: 'blur' },
         { type: 'email', message: '请输入合法的电子邮件地址', trigger: ['blur', 'change'] }
     ],
     verifyCode: [
-        { required: true, message: '请输入验证码', trigger: ['blur', 'change'] },
+        { required: true, message: '请输入验证码', trigger: 'blur' },
     ]
 }
 
 const formRef = ref()
-const isEmailValid = ref(false)
+const isEmailValid = ref(false)  // 验证邮箱是否合法
 
 const onValidate = (prop, isValid) => {
     if (prop === 'email') {
@@ -87,7 +87,7 @@ const register = () => {
                 email: form.email,
                 verifyCode: form.verifyCode
             }, (message) => {
-                ElMessage(message)
+                ElMessage.success(message)
                 router.push('/')
             })
         } else {
@@ -96,8 +96,8 @@ const register = () => {
     })
 }
 
-const validateEmail = () => {
-    post('/api/auth/validate-email', {
+const sendValidateEmail = () => {
+    post('/api/auth/send-to-nonexistent-email', {
         email: form.email
     }, (message) => {
         ElMessage.success(message)
@@ -111,6 +111,7 @@ const validateEmail = () => {
             <div style="font-size: 25px; font-weight: bold">注册新用户</div>
             <div style="font-size: 14px; color: grey">填写信息以完成注册</div>
         </div>
+
         <div style="margin-top: 80px">
             <el-form :model="form" :rules="rules" @validate="onValidate" ref="formRef">
                 <el-form-item prop="username">
@@ -155,12 +156,13 @@ const validateEmail = () => {
                             </el-input>
                         </el-col>
                         <el-col :span="5">
-                            <el-button @click="validateEmail" type="success" :disabled="!isEmailValid">获取验证码</el-button>
+                            <el-button @click="sendValidateEmail" type="success" :disabled="!isEmailValid">获取验证码</el-button>
                         </el-col>
                     </el-row>
                 </el-form-item>
             </el-form>
         </div>
+
         <div style="margin-top: 80px">
             <el-button @click="register" style="width: 270px" type="warning" plain>立即注册</el-button>
         </div>

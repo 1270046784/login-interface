@@ -33,6 +33,7 @@ const login = () => {
             <div style="font-size: 25px; font-weight: bold">登录</div>
             <div style="font-size: 14px; color: grey">登录以访问系统</div>
         </div>
+
         <div style="margin-top: 50px">
             <el-input v-model="form.username" type="text" placeholder="用户名/邮箱">
                 <template #prefix>
@@ -45,14 +46,16 @@ const login = () => {
                 </template>
             </el-input>
         </div>
+
         <el-row style="margin-top: 5px">
             <el-col :span="10" style="text-align: left">
                 <el-checkbox v-model="form.remember" label="记住我"/>
             </el-col>
             <el-col :span="10" style="text-align: right; margin-left: 20px; margin-right: 20px">
-                <el-link>忘记密码</el-link>
+                <el-link @click="router.push('/forget')">忘记密码</el-link>
             </el-col>
         </el-row>
+
         <div style="margin-top: 40px">
             <el-button @click="login" style="width: 270px" type="success" plain>立即登录</el-button>
         </div>
