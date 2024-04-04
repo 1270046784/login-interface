@@ -1,4 +1,4 @@
-package com.pythonwizzard.backend.entity;
+package com.pythonwizzard.backend.entity.auth;
 
 import lombok.Data;
 

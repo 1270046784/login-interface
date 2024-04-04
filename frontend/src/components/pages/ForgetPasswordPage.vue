@@ -59,7 +59,7 @@ const rules = {
 const sendValidateEmail = () => {
     post('/api/auth/send-to-existed-email', {
         email: form.email
-    }, (message) => {
+    }, message => {
         ElMessage.success(message)
     })
 }
@@ -70,7 +70,7 @@ const validateEmail = () => {
             post('/api/auth/validate-email', {
                 email: form.email,
                 verifyCode: form.verifyCode
-            }, (message) => {
+            }, message => {
                 ElMessage.success(message)
                 active.value = 1
             })
@@ -86,7 +86,7 @@ const resetPassword = () => {
             post('/api/auth/reset-password', {
                 password: form.password,
                 email: form.email
-            }, (message) => {
+            }, message => {
                 ElMessage.success(message)
                 router.push('/')
             })

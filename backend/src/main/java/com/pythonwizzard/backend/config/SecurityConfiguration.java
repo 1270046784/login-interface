@@ -46,13 +46,8 @@ public class SecurityConfiguration {
     ) throws Exception {
         http.
                 authorizeHttpRequests(auth -> auth
-                        .requestMatchers(
-                                "/api/auth/send-to-existed-email",
-                                "/api/auth/send-to-nonexistent-email",
-                                "/api/auth/register",
-                                "/api/auth/validate-email",
-                                "/api/auth/reset-password"
-                        ).permitAll()  // 放行请求
+                        .requestMatchers("/api/**")
+                        .permitAll()  // 放行服务器端请求
                 )  // 认证所有请求
                 .formLogin(form -> form
                         .loginProcessingUrl("/api/auth/login")

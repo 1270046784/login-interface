@@ -2,7 +2,7 @@
 </script>
 
 <template>
-    <router-view/>
+    <router-view :key="$route.fullPath"/>
 </template>
 
 <style scoped>

@@ -86,7 +86,7 @@ const register = () => {
                 password: form.password,
                 email: form.email,
                 verifyCode: form.verifyCode
-            }, (message) => {
+            }, message => {
                 ElMessage.success(message)
                 router.push('/')
             })
@@ -99,7 +99,7 @@ const register = () => {
 const sendValidateEmail = () => {
     post('/api/auth/send-to-nonexistent-email', {
         email: form.email
-    }, (message) => {
+    }, message => {
         ElMessage.success(message)
     })
 }

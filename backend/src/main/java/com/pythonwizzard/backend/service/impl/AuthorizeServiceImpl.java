@@ -1,7 +1,8 @@
-package com.pythonwizzard.backend.service;
+package com.pythonwizzard.backend.service.impl;
 
-import com.pythonwizzard.backend.entity.Account;
+import com.pythonwizzard.backend.entity.auth.Account;
 import com.pythonwizzard.backend.mapper.AccountMapper;
+import com.pythonwizzard.backend.service.AuthorizeService;
 import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.StringRedisTemplate;
