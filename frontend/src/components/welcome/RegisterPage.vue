@@ -8,9 +8,9 @@ import {post} from "@/net/index.js";
 const form = reactive({
     username: '',
     password: '',
-    confirm_password: '',
+    confirmPassword: '',
     email: '',
-    verify_code: ''
+    verifyCode: ''
 })
 
 /**
@@ -54,18 +54,18 @@ const rules = {
         { min: 2, max: 10, message: '用户名需要在2-10个字符之间', trigger: ['blur', 'change'] },
     ],
     password: [
-        { required: true, message: '请输入密码', trigger: 'blur' },
+        { required: true, message: '请输入密码', trigger: ['blur', 'change'] },
         { min: 4, max: 20, message: '密码需要在4-20个字符之间', trigger: ['blur', 'change'] },
     ],
-    confirm_password: [
+    confirmPassword: [
         { validator: validateConfirmPassword, trigger: ['blur', 'change'] }
     ],
     email: [
-        { required: true, message: '请输入电子邮件地址', trigger: 'blur' },
+        { required: true, message: '请输入电子邮件地址', trigger: ['blur', 'change'] },
         { type: 'email', message: '请输入合法的电子邮件地址', trigger: ['blur', 'change'] }
     ],
-    verify_code: [
-        { required: true, message: '请输入验证码', trigger: 'blur' },
+    verifyCode: [
+        { required: true, message: '请输入验证码', trigger: ['blur', 'change'] },
     ]
 }
 
@@ -81,7 +81,15 @@ const onValidate = (prop, isValid) => {
 const register = () => {
     formRef.value.validate((isValid) => {
         if (isValid) {
-
+            post('/api/auth/register', {
+                username: form.username,
+                password: form.password,
+                email: form.email,
+                verifyCode: form.verifyCode
+            }, (message) => {
+                ElMessage(message)
+                router.push('/')
+            })
         } else {
             ElMessage.warning('请完整填写注册表单')
         }
@@ -89,7 +97,7 @@ const register = () => {
 }
 
 const validateEmail = () => {
-    post('/api/auth/valid-email', {
+    post('/api/auth/validate-email', {
         email: form.email
     }, (message) => {
         ElMessage.success(message)
@@ -121,8 +129,8 @@ const validateEmail = () => {
                     </el-input>
                 </el-form-item>
 
-                <el-form-item prop="confirm_password">
-                    <el-input v-model="form.confirm_password" type="password" placeholder="确认密码">
+                <el-form-item prop="confirmPassword">
+                    <el-input v-model="form.confirmPassword" type="password" placeholder="确认密码">
                         <template #prefix>
                             <el-icon><Lock/></el-icon>
                         </template>
@@ -137,10 +145,10 @@ const validateEmail = () => {
                     </el-input>
                 </el-form-item>
 
-                <el-form-item prop="verify_code">
+                <el-form-item prop="verifyCode">
                     <el-row :gutter="10" style="width: 100%">
                         <el-col :span="17">
-                            <el-input v-model="form.verify_code" type="text" placeholder="输入验证码">
+                            <el-input v-model="form.verifyCode" type="text" placeholder="输入验证码">
                                 <template #prefix>
                                     <el-icon><EditPen/></el-icon>
                                 </template>

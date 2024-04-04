@@ -4,17 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba768bea-6d70-4b81-b75d-1bed1f24ea32" name="更改" comment="v0.1.6 后端发送验证码功能实现">
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cy/backend/BackendApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/BackendApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cy/backend/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/config/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cy/backend/controller/AuthorizeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/controller/AuthorizeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cy/backend/entity/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/entity/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cy/backend/entity/RestBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/entity/RestBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cy/backend/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cy/backend/service/AuthorizeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/service/AuthorizeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cy/backend/service/AuthorizeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/service/AuthorizeServiceImpl.java" afterDir="false" />
+    <list default="true" id="ba768bea-6d70-4b81-b75d-1bed1f24ea32" name="更改" comment="v0.1.7 迁移了后端java文件目录">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/dto/RegisterAccountDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/config/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/controller/AuthorizeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/controller/AuthorizeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/entity/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/entity/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/mapper/AccountMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/service/AuthorizeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/service/AuthorizeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/service/AuthorizeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/service/AuthorizeServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/cy/backend/BackendApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/pythonwizzard/backend/BackendApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/welcome/RegisterPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/welcome/RegisterPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/net/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/net/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/WelcomeView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/WelcomeView.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +107,10 @@
     ]
   }
 }]]></component>
-  <component name="RunManager" selected="npm.dev">
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RunManager" selected="Spring Boot.BackendApplication">
     <configuration name="BackendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="backend" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.pythonwizzard.backend.BackendApplication" />
@@ -131,8 +136,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.dev" />
         <item itemvalue="Spring Boot.BackendApplication" />
+        <item itemvalue="npm.dev" />
       </list>
     </recent_temporary>
   </component>
@@ -161,7 +166,7 @@
       <workItem from="1712059867360" duration="4000" />
       <workItem from="1712060034350" duration="3000" />
       <workItem from="1712060044123" duration="16000" />
-      <workItem from="1712060068515" duration="39776000" />
+      <workItem from="1712060068515" duration="48925000" />
     </task>
     <task id="LOCAL-00001" summary="v0.1.1 配置登录借口，发送登录成功或失败json文件">
       <option name="closed" value="true" />
@@ -259,7 +264,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712157665952</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="v0.1.7 迁移了后端java文件目录">
+      <option name="closed" value="true" />
+      <created>1712157936380</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1712157936380</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -287,8 +300,10 @@
     <MESSAGE value="v0.1.4 实现“记住我”功能，注册访问令牌" />
     <MESSAGE value="v0.1.5 实现前端注册界面" />
     <MESSAGE value="v0.1.6 实现部分发送验证码" />
+    <MESSAGE value="v0.1.7 后端发送验证码功能实现" />
     <MESSAGE value="v0.1.6 后端发送验证码功能实现" />
-    <option name="LAST_COMMIT_MESSAGE" value="v0.1.6 后端发送验证码功能实现" />
+    <MESSAGE value="v0.1.7 迁移了后端java文件目录" />
+    <option name="LAST_COMMIT_MESSAGE" value="v0.1.7 迁移了后端java文件目录" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

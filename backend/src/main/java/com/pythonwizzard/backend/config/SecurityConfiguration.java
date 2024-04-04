@@ -41,11 +41,13 @@ public class SecurityConfiguration {
      */
     @Bean
     public SecurityFilterChain filterChain(
-            HttpSecurity http, PersistentTokenRepository tokenRepository
+            HttpSecurity http,
+            PersistentTokenRepository tokenRepository
     ) throws Exception {
         http.
                 authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/valid-email").permitAll()  // 放行验证邮件请求
+                        .requestMatchers("/api/auth/validate-email").permitAll()  // 放行验证邮件请求
+                        .requestMatchers("/api/auth/register").permitAll()
                         .anyRequest().authenticated()
                 )  // 认证所有请求
                 .formLogin(form -> form
@@ -124,7 +126,9 @@ public class SecurityConfiguration {
      * 登录成功返回json
      */
     public void onAuthenticationSuccess(
-            HttpServletRequest request, HttpServletResponse response, Authentication authentication
+            HttpServletRequest request,
+            HttpServletResponse response,
+            Authentication authentication
     ) throws IOException {
         response.setCharacterEncoding("utf-8");
         if (request.getRequestURI().endsWith("/login")) {
@@ -138,7 +142,9 @@ public class SecurityConfiguration {
      * 登陆失败返回json
      */
     public void onAuthenticationFailure(
-            HttpServletRequest request, HttpServletResponse response, AuthenticationException exception
+            HttpServletRequest request,
+            HttpServletResponse response,
+            AuthenticationException exception
     ) throws IOException {
         response.setCharacterEncoding("utf-8");
         response.getWriter().write(JSONObject.toJSONString(RestBean.failure(400, exception.getMessage())));

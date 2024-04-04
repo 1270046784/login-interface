@@ -8,6 +8,7 @@ function post(url, data, success, failure = defaultFailure, error = defaultError
     axios.post(url, data, {
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
+            // 'Content-Type': 'application/json'
         },
         withCredentials: true
     }).then(({data}) => {
