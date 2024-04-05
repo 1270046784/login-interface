@@ -26,6 +26,7 @@ const login = () => {
             ElMessage.success(message)
             get('/api/user/info', message => {
                 store.auth.user = message
+                localStorage.setItem('auth', JSON.stringify(store.auth))  // 缓存用户登录信息
                 router.push('/index')
             }, () => {
                 store.auth.user = null
