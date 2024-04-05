@@ -24,16 +24,20 @@ public class AuthorizeInterceptor implements HandlerInterceptor {
      */
     @Override
     public boolean preHandle(
-            HttpServletRequest request,
+            @Nonnull HttpServletRequest request,
             @Nonnull HttpServletResponse response,
             @Nonnull Object handler
     ) {
         SecurityContext context = SecurityContextHolder.getContext();
         Authentication authentication = context.getAuthentication();
-        User user = (User) authentication.getPrincipal();
-        String username = user.getUsername();
-        NormalUser normalUser = accountMapper.findNormalUserByNameOrEmails(username);
-        request.getSession().setAttribute("user", normalUser);  // 将用户放入session
-        return true;
+        try {
+            User user = (User) authentication.getPrincipal();
+            String username = user.getUsername();
+            NormalUser normalUser = accountMapper.findNormalUserByNameOrEmails(username);
+            request.getSession().setAttribute("user", normalUser);  // 将用户放入session
+            return true;
+        } catch (Exception e) {  // 如果未登录则principal是字符串类
+            return false;
+        }
     }
 }
