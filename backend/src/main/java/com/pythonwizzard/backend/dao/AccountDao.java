@@ -1,11 +1,11 @@
-package com.pythonwizzard.backend.mapper;
+package com.pythonwizzard.backend.dao;
 
 import com.pythonwizzard.backend.entity.auth.Account;
 import com.pythonwizzard.backend.entity.user.NormalUser;
 import org.apache.ibatis.annotations.*;
 
 @Mapper
-public interface AccountMapper {
+public interface AccountDao {
 
     @Select("select * from login.accounts where username = #{text} or email = #{text}")
     Account findAccountByNameOrEmails(String text);

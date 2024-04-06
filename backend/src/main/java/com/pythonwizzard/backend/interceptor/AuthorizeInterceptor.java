@@ -1,7 +1,7 @@
 package com.pythonwizzard.backend.interceptor;
 
 import com.pythonwizzard.backend.entity.user.NormalUser;
-import com.pythonwizzard.backend.mapper.AccountMapper;
+import com.pythonwizzard.backend.dao.AccountDao;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
@@ -17,7 +17,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 public class AuthorizeInterceptor implements HandlerInterceptor {
 
     @Resource
-    private AccountMapper accountMapper;
+    private AccountDao accountDao;
 
     /**
      * 设置拦截器
@@ -33,7 +33,7 @@ public class AuthorizeInterceptor implements HandlerInterceptor {
         try {
             User user = (User) authentication.getPrincipal();
             String username = user.getUsername();
-            NormalUser normalUser = accountMapper.findNormalUserByNameOrEmails(username);
+            NormalUser normalUser = accountDao.findNormalUserByNameOrEmails(username);
             request.getSession().setAttribute("user", normalUser);  // 将用户放入session
             return true;
         } catch (Exception e) {  // 如果未登录则principal是字符串类

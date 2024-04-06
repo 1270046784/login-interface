@@ -49,7 +49,7 @@ const login = () => {
                     <el-icon><User/></el-icon>
                 </template>
             </el-input>
-            <el-input v-model="form.password" type="password" placeholder="密码">
+            <el-input style="margin-top: 20px" v-model="form.password" type="password" placeholder="密码">
                 <template #prefix>
                     <el-icon><Lock/></el-icon>
                 </template>

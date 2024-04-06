@@ -1,7 +1,7 @@
 package com.pythonwizzard.backend.service.impl;
 
 import com.pythonwizzard.backend.entity.auth.Account;
-import com.pythonwizzard.backend.mapper.AccountMapper;
+import com.pythonwizzard.backend.dao.AccountDao;
 import com.pythonwizzard.backend.service.AuthorizeService;
 import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Value;
@@ -30,7 +30,7 @@ public class AuthorizeServiceImpl implements AuthorizeService {
     private String senderEmail;  // 注入发送者
 
     @Resource
-    private AccountMapper accountMapper;
+    private AccountDao accountDao;
 
     @Resource
     private MailSender mailSender;  // 提供了发送邮件接口
@@ -52,7 +52,7 @@ public class AuthorizeServiceImpl implements AuthorizeService {
         if (username == null) {
             throw new UsernameNotFoundException("用户名为空");
         }
-        Account account = accountMapper.findAccountByNameOrEmails(username);
+        Account account = accountDao.findAccountByNameOrEmails(username);
         if (account == null) {
             throw new UsernameNotFoundException("用户名或密码错误");
         }
@@ -67,10 +67,10 @@ public class AuthorizeServiceImpl implements AuthorizeService {
     public String sendVerifyCode(String email, String ipAddress, boolean needEmailExisted) {
         String key = "email:" + ipAddress + ":" + email;  // 将当前邮件地址和ip地址存入redis
 
-        if (needEmailExisted && accountMapper.findAccountByNameOrEmails(email) == null) {
+        if (needEmailExisted && accountDao.findAccountByNameOrEmails(email) == null) {
             return "账号不存在";
         }
-        if (!needEmailExisted && accountMapper.findAccountByNameOrEmails(email) != null) {
+        if (!needEmailExisted && accountDao.findAccountByNameOrEmails(email) != null) {
             return "账号已注册";
         }
 
@@ -123,7 +123,7 @@ public class AuthorizeServiceImpl implements AuthorizeService {
                 return VERIFY_CODE_EXPIRE_MESSAGE;
             } else if (verifyCode.equals(realVerifyCode)) {
                 password = passwordEncoder.encode(password);  // 对密码进行编码
-                if (accountMapper.registerAccount(username, password, email) > 0) {
+                if (accountDao.registerAccount(username, password, email) > 0) {
                     return null;  // 成功验证，可进行注册
                 } else {
                     return EXCEPTION_MESSAGE;
@@ -158,7 +158,7 @@ public class AuthorizeServiceImpl implements AuthorizeService {
 
     @Override
     public String resetPassword(String email, String newPassword) {
-        Account account = accountMapper.findAccountByNameOrEmails(email);
+        Account account = accountDao.findAccountByNameOrEmails(email);
         assert account != null: "发生错误，请联系管理员";  // 经过前面步骤，邮件地址应当存在
 
         if (passwordEncoder.matches(newPassword, account.getPassword())) {
@@ -166,7 +166,7 @@ public class AuthorizeServiceImpl implements AuthorizeService {
         }
 
         newPassword = passwordEncoder.encode(newPassword);
-        if (accountMapper.updateAccountPasswordByEmail(email, newPassword) > 0) {
+        if (accountDao.updateAccountPasswordByEmail(email, newPassword) > 0) {
             return null;
         } else {
             return EXCEPTION_MESSAGE;

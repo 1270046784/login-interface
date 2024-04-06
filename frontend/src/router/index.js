@@ -42,7 +42,7 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
     const store = useStore()
     if (store.auth.user != null) {  // 用户已登录
-        if (to.matched.length === 0 || to.name in ['login', 'register', 'forget-password']) {  // 访问的url不存在或前往登录相关界面
+        if (to.matched.length === 0 || !to.path.startsWith('/index')) {  // 访问的url不存在或前往登录相关界面
             next('/index')
         } else {
             next()

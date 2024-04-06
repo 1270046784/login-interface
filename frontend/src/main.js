@@ -9,7 +9,7 @@ import axios from "axios";
 
 const app = createApp(App)
 
-axios.defaults.baseURL = 'http://localhost:8080'
+axios.defaults.baseURL = "http://localhost:8080"  // 跨域访问后端host，如果时服务器设置为公网ip
 
 app.use(createPinia())
 app.use(router)

@@ -6,6 +6,7 @@ import com.pythonwizzard.backend.service.AuthorizeService;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -29,6 +30,12 @@ import java.io.IOException;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration {
+
+    @Value("${frontend.host}")
+    private String frontendHost;
+
+    @Value("${create-table-on-startup}")
+    private boolean createTableOnStartup;
 
     @Resource
     private AuthorizeService authorizeService;  // 登录服务
@@ -81,7 +88,7 @@ public class SecurityConfiguration {
     public PersistentTokenRepository tokenRepository() {
         JdbcTokenRepositoryImpl jdbcTokenRepository = new JdbcTokenRepositoryImpl();
         jdbcTokenRepository.setDataSource(dataSource);  // 设置数据源
-//        jdbcTokenRepository.setCreateTableOnStartup(true);  // 在建表时创建令牌仓库，仅第一次设置
+        jdbcTokenRepository.setCreateTableOnStartup(createTableOnStartup);  // 在建表时创建令牌仓库，仅第一次设置true
         return jdbcTokenRepository;
     }
 
@@ -91,7 +98,7 @@ public class SecurityConfiguration {
      */
     private CorsConfigurationSource configurationSource() {
         CorsConfiguration cors = new CorsConfiguration();
-        cors.addAllowedOriginPattern("http://localhost:5173");
+        cors.addAllowedOriginPattern("http://" + frontendHost  + ":5173");
         cors.setAllowCredentials(true);
         cors.addAllowedHeader("*");
         cors.addAllowedMethod("*");

@@ -9,8 +9,8 @@ const store = useStore()
 const logout = () => {
     get('/api/auth/logout', message => {
         ElMessage.success(message)
-        store.auth.user = null
         localStorage.removeItem('auth')
+        store.auth.user = null
         router.push('/')
     })
 }
@@ -24,7 +24,9 @@ const toTest = () => {
     <div class="top-bar">
         <div class="art-text">Unnamed</div>
         <div class="user-info">
-            欢迎您，<span>{{ store.auth.user.username }}</span>先生/女士
+            欢迎您，
+            <span>{{ store.auth && store.auth.user ? store.auth.user.username : 'null' }}</span>
+            先生/女士
             <el-button @click="logout" type="danger" plain size="small">登出</el-button>
             <el-button @click="toTest" type="success" plain size="small">自爆按钮</el-button>
         </div>
