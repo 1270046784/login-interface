@@ -29,9 +29,9 @@ const router = createRouter({
             component: () => import('@/views/IndexView.vue'),
             children: [
                 {
-                    path: 'test',
-                    name: 'test',
-                    component: () => import('@/components/pages/TestPage.vue')
+                    path: '',
+                    name: 'editor',
+                    component: () => import('@/components/pages/EditorPage.vue')
                 }
             ]
         }

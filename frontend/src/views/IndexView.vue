@@ -14,21 +14,16 @@ const logout = () => {
         router.push('/')
     })
 }
-
-const toTest = () => {
-    router.push('/index/test')
-}
 </script>
 
 <template>
     <div class="top-bar">
-        <div class="art-text">Unnamed</div>
+        <div class="art-text">Unnamed Markdown Editor</div>
         <div class="user-info">
             欢迎您，
             <span>{{ store.auth && store.auth.user ? store.auth.user.username : 'null' }}</span>
             先生/女士
             <el-button @click="logout" type="danger" plain size="small">登出</el-button>
-            <el-button @click="toTest" type="success" plain size="small">自爆按钮</el-button>
         </div>
     </div>
     <router-view/>
