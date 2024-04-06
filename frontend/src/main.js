@@ -9,7 +9,9 @@ import axios from "axios";
 
 const app = createApp(App)
 
-axios.defaults.baseURL = "http://localhost:8080"  // 跨域访问后端host，如果时服务器设置为公网ip
+axios.defaults.baseURL = import.meta.env.VITE_API_BASEURL  // 跨域访问后端host
+
+app.config.devtools = import.meta.env.MODE === 'development';  // 根据开发或生产环境开关dev-tools
 
 app.use(createPinia())
 app.use(router)
