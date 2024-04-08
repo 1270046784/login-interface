@@ -1,3 +1,41 @@
 spring:
   application:
     name: backend
+
+  # mysql数据源
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/login?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+
+  # 发送验证码的邮箱
+  mail:
+    host: smtp.163.com
+    username:   # 邮箱
+    password:   # 发验证码的授权密码
+    port: 465
+    properties:
+      from: ${spring.mail.username}
+      mail:
+        smtp:
+          socketFactory:
+            class: javax.net.ssl.SSLSocketFactory
+
+  # redis数据源，本地数据库可以不用配置
+  data:
+    redis:
+      database: 0
+      host: localhost
+      port: 6379
+
+
+server:
+  address: 0.0.0.0  # 本地实验设置为localhost，部署到服务器设置为0.0.0.0
+  port: 8080
+
+frontend:
+  host:  # 本地实验设置为localhost，部署到服务器设置为公网ip
+
+# 第一次建表时设置为true，以后设置为false
+create-table-on-startup: false

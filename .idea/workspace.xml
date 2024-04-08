@@ -4,62 +4,193 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba768bea-6d70-4b81-b75d-1bed1f24ea32" name="更改" comment="v0.1.0 项目创建">
+    <list default="true" id="ba768bea-6d70-4b81-b75d-1bed1f24ea32" name="更改" comment="v0.4.0 修复了海量bug">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/entity/user/TextFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/pages/EditorPage.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/dao/AccountDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/dao/AccountDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/entity/user/NormalUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/entity/user/NormalUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.env.development" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.env.development" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.env.production" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.env.production" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/pages/TestPage.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/HomeView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/HomeView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/IndexView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/IndexView.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="JavaScript File" />
+        <option value="Vue Composition API Component" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="PythonWizard &lt;1270046784@qq.com&gt;" />
+      </list>
+    </option>
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="customMavenHome" value="/usr/local/maven/apache-maven-3.8.6" />
+        <option name="mavenHomeTypeForPersistence" value="CUSTOM" />
+        <option name="userSettingsFile" value="/usr/local/maven/apache-maven-3.8.6/conf/settings.xml" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
   <component name="ProjectId" id="2eXUY6dJch8Kb93kAGltdtehDlz" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/asus/IdeaProjects/login-interface/frontend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
-    &quot;npm.install.executor&quot;: &quot;Run&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.3.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "JUnit.BackendApplicationTests.contextLoads.executor": "Run",
+    "JUnit.BackendApplicationTests.mysqlDriver.executor": "Run",
+    "Maven.backend [clean].executor": "Run",
+    "Maven.backend [install].executor": "Run",
+    "Maven.backend [package].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.BackendApplication.executor": "Run",
+    "WebServerToolWindowFactoryState": "false",
+    "deletionFromPopupRequiresConfirmation": "false",
+    "extract.method.default.visibility": "private",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "javascript.nodejs.core.library.configured.version": "20.12.0",
+    "javascript.nodejs.core.library.typings.version": "20.12.5",
+    "jdk.selected.JAVA_MODULE": "17",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/bloodymoon/IdeaProjects/login-interface/frontend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.build.executor": "Run",
+    "npm.dev.executor": "Run",
+    "npm.install.executor": "Run",
+    "project.structure.last.edited": "模块",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "spring.configuration.checksum": "b43fdd98b1fd705ae4c3a10cf25aad8a",
+    "ts.external.directory.path": "/Users/bloodymoon/Library/Application Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/233.15026.9/IntelliJ IDEA.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "redis",
+      "mysql"
+    ],
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL 方言": [
+      "MySQL"
+    ],
+    "vue.recent.templates": [
+      "Vue Composition API Component"
+    ]
   }
-}</component>
-  <component name="RunManager" selected="Spring Boot.BackendApplication">
-    <configuration name="BackendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+}]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend" />
+      <recent name="$PROJECT_DIR$/frontend/src/images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/src/assets" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.dev">
+    <configuration name="BackendApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="backend" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.cy.backend.BackendApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.pythonwizzard.backend.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.pythonwizzard.backend" />
+      <option name="MAIN_CLASS_NAME" value="com.pythonwizzard.backend.BackendApplicationTests" />
+      <option name="METHOD_NAME" value="contextLoads" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="BackendApplicationTests.mysqlDriver" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.pythonwizzard.backend.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.pythonwizzard.backend" />
+      <option name="MAIN_CLASS_NAME" value="com.pythonwizzard.backend.BackendApplicationTests" />
+      <option name="METHOD_NAME" value="mysqlDriver" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BackendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="backend" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.pythonwizzard.backend.BackendApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.pythonwizzard.backend.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/frontend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
     </configuration>
     <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/frontend/package.json" />
@@ -74,13 +205,17 @@
     <recent_temporary>
       <list>
         <item itemvalue="npm.dev" />
+        <item itemvalue="Spring Boot.BackendApplication" />
+        <item itemvalue="npm.build" />
+        <item itemvalue="JUnit.BackendApplicationTests.mysqlDriver" />
+        <item itemvalue="JUnit.BackendApplicationTests.contextLoads" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-17.0.10-corretto-17.0.10-f644763e9732-24fca987" />
+        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-53826d6a" />
       </set>
     </attachedChunks>
   </component>
@@ -94,27 +229,234 @@
       <updated>1712050460661</updated>
       <workItem from="1712050461744" duration="934000" />
       <workItem from="1712051408369" duration="219000" />
-      <workItem from="1712051637278" duration="1250000" />
+      <workItem from="1712051637278" duration="113000" />
+      <workItem from="1712056187899" duration="286000" />
+      <workItem from="1712056479580" duration="868000" />
+      <workItem from="1712057358212" duration="1543000" />
+      <workItem from="1712059810330" duration="51000" />
+      <workItem from="1712059867360" duration="4000" />
+      <workItem from="1712060034350" duration="3000" />
+      <workItem from="1712060044123" duration="16000" />
+      <workItem from="1712060068515" duration="66969000" />
+      <workItem from="1712403266340" duration="18724000" />
     </task>
-    <task id="LOCAL-00001" summary="v0.1.0 项目创建">
+    <task id="LOCAL-00001" summary="v0.1.1 配置登录借口，发送登录成功或失败json文件">
       <option name="closed" value="true" />
-      <created>1712052010163</created>
+      <created>1712072365198</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1712052010163</updated>
+      <updated>1712072365198</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="v0.1.1 配置登录接口，发送登录成功或失败json文件">
+      <option name="closed" value="true" />
+      <created>1712072389745</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1712072389745</updated>
+    </task>
+    <task id="LOCAL-00003" summary="v0.1.1 配置登录接口，发送登录成功或失败json文件">
+      <option name="closed" value="true" />
+      <created>1712072448682</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1712072448682</updated>
+    </task>
+    <task id="LOCAL-00004" summary="v0.1.1 配置登录接口，发送登录成功或失败json文件">
+      <option name="closed" value="true" />
+      <created>1712072506214</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1712072506214</updated>
+    </task>
+    <task id="LOCAL-00005" summary="v0.1.1 配置登录接口，发送登录成功或失败json文件">
+      <option name="closed" value="true" />
+      <created>1712072538607</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1712072538607</updated>
+    </task>
+    <task id="LOCAL-00006" summary="v0.1.2 成功接入数据库">
+      <option name="closed" value="true" />
+      <created>1712075465322</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1712075465322</updated>
+    </task>
+    <task id="LOCAL-00007" summary="v0.1.3 实现前端发送请求">
+      <option name="closed" value="true" />
+      <created>1712120759771</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1712120759771</updated>
+    </task>
+    <task id="LOCAL-00008" summary="v0.1.4 实现“记住我”功能，注册访问令牌">
+      <option name="closed" value="true" />
+      <created>1712125905437</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1712125905437</updated>
+    </task>
+    <task id="LOCAL-00009" summary="v0.1.5 实现前端注册界面">
+      <option name="closed" value="true" />
+      <created>1712132772135</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1712132772135</updated>
+    </task>
+    <task id="LOCAL-00010" summary="v0.1.6 实现部分发送验证码">
+      <option name="closed" value="true" />
+      <created>1712153374364</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1712153374364</updated>
+    </task>
+    <task id="LOCAL-00011" summary="v0.1.6 后端发送验证码功能实现">
+      <option name="closed" value="true" />
+      <created>1712157364775</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1712157364775</updated>
+    </task>
+    <task id="LOCAL-00012" summary="v0.1.6 后端发送验证码功能实现">
+      <option name="closed" value="true" />
+      <created>1712157665952</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1712157665952</updated>
+    </task>
+    <task id="LOCAL-00013" summary="v0.1.7 迁移了后端java文件目录">
+      <option name="closed" value="true" />
+      <created>1712157936380</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1712157936380</updated>
+    </task>
+    <task id="LOCAL-00014" summary="v0.1.8 实现注册功能">
+      <option name="closed" value="true" />
+      <created>1712207746561</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1712207746561</updated>
+    </task>
+    <task id="LOCAL-00015" summary="v0.1.9 至此完成基本上全部功能，下一步优化后可发布正式版">
+      <option name="closed" value="true" />
+      <created>1712225891832</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1712225891832</updated>
+    </task>
+    <task id="LOCAL-00016" summary="v0.3.0 实现了全部功能">
+      <option name="closed" value="true" />
+      <created>1712288049420</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1712288049420</updated>
+    </task>
+    <task id="LOCAL-00017" summary="v0.3.0 实现了全部功能">
+      <option name="closed" value="true" />
+      <created>1712290321041</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1712290321041</updated>
+    </task>
+    <task id="LOCAL-00018" summary="v0.3.1 修复了刷新页面资源无法保存前端auth信息的bug">
+      <option name="closed" value="true" />
+      <created>1712293681067</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1712293681067</updated>
+    </task>
+    <task id="LOCAL-00019" summary="v0.4.0 修复了海量bug">
+      <option name="closed" value="true" />
+      <created>1712403295237</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1712403295237</updated>
+    </task>
+    <task id="LOCAL-00020" summary="v0.4.0 修复了海量bug">
+      <option name="closed" value="true" />
+      <created>1712495107799</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1712495107799</updated>
+    </task>
+    <task id="LOCAL-00021" summary="v0.4.0 修复了海量bug">
+      <option name="closed" value="true" />
+      <created>1712495181173</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1712495181173</updated>
+    </task>
+    <task id="LOCAL-00022" summary="v0.4.0 修复了海量bug">
+      <option name="closed" value="true" />
+      <created>1712495253291</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1712495253291</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
       <path value="$PROJECT_DIR$/backend" />
     </ignored-roots>
-    <MESSAGE value="v0.1.0 项目创建" />
-    <option name="LAST_COMMIT_MESSAGE" value="v0.1.0 项目创建" />
+    <MESSAGE value="v0.1.1 配置登录借口，发送登录成功或失败json文件" />
+    <MESSAGE value="v0.1.1 配置登录接口，发送登录成功或失败json文件" />
+    <MESSAGE value="v0.1.2 成功接入数据库" />
+    <MESSAGE value="v0.1.3 实现前端发送请求" />
+    <MESSAGE value="v0.1.4 实现“记住我”功能，注册访问令牌" />
+    <MESSAGE value="v0.1.5 实现前端注册界面" />
+    <MESSAGE value="v0.1.6 实现部分发送验证码" />
+    <MESSAGE value="v0.1.7 后端发送验证码功能实现" />
+    <MESSAGE value="v0.1.6 后端发送验证码功能实现" />
+    <MESSAGE value="v0.1.7 迁移了后端java文件目录" />
+    <MESSAGE value="v0.1.8 实现注册功能" />
+    <MESSAGE value="v0.1.9 至此完成基本上全部功能，下一步优化后可发布正式版" />
+    <MESSAGE value="v0.2.0 实现后端发送用户信息请求" />
+    <MESSAGE value="v0.3.0 实现了全部功能" />
+    <MESSAGE value="v0.3.1 修复了刷新页面资源无法保存前端auth信息的bug" />
+    <MESSAGE value="v0.4.0 修复了海量bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="v0.4.0 修复了海量bug" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
