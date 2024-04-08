@@ -24,16 +24,24 @@ public interface UserDirDao {
     List<TextFile> getUserDir(@Param("tableName") String tableName);
 
     @Insert("insert into login.${tableName} (title, text) values (#{title}, '')")
-    void createNewFile(@Param("tableName") String tableName, String title);
+    void createFile(@Param("tableName") String tableName, String title);
 
-    default boolean createDirTable(String username) {
+    @Update("update login.${tableName} set title = #{newTitle} where title = #{oldTitle}")
+    void changeTitle(@Param("tableName") String tableName, String oldTitle, String newTitle);
+
+    @Delete("delete from login.${tableName} where title = #{title}")
+    void removeFile(@Param("tableName") String tableName, String title);
+
+    @Update("update login.${tableName} set text = #{text} where title = #{title}")
+    void saveFile(@Param("tableName") String tableName, String title, String text);
+
+    default void createDirTable(String username) {
         String tableName = username + "_dir";
         try {
             createDynamicTable(tableName);
-            initUserDir(tableName);
-            return true;
+//            initUserDir(tableName);
         } catch (Exception ignored) {
-            return false;
+
         }
     }
 

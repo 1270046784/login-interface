@@ -24,7 +24,25 @@ public class UserDIrServiceImpl implements UserDirService {
     @Override
     public void createFile(String username, String title) {
         String tableName = username + "_dir";
-        userDirDao.createNewFile(tableName, title);
+        userDirDao.createFile(tableName, title);
+    }
+
+    @Override
+    public void changeTitle(String username, String oldTitle, String newTitle) {
+        String tableName = username + "_dir";
+        userDirDao.changeTitle(tableName, oldTitle, newTitle);
+    }
+
+    @Override
+    public void removeFile(String username, String title) {
+        String tableName = username + "_dir";
+        userDirDao.removeFile(tableName, title);
+    }
+
+    @Override
+    public void saveFile(String username, String title, String text) {
+        String tableName = username + "_dir";
+        userDirDao.saveFile(tableName, title, text);
     }
 
 }
