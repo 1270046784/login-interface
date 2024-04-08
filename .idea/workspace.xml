@@ -5,20 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba768bea-6d70-4b81-b75d-1bed1f24ea32" name="更改" comment="v0.4.0 修复了海量bug">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/entity/user/TextFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/pages/EditorPage.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/dao/UserDirDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/service/UserDirService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/service/impl/UserDIrServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/config/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/config/WebConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/config/WebConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/dao/AccountDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/dao/AccountDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/entity/user/NormalUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/entity/user/NormalUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.env.development" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.env.development" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.env.production" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.env.production" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/pages/TestPage.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/HomeView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/HomeView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/IndexView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/IndexView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/pages/EditorPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/pages/EditorPage.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,10 +27,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="JavaScript File" />
         <option value="Vue Composition API Component" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -52,8 +51,6 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="customMavenHome" value="/usr/local/maven/apache-maven-3.8.6" />
-        <option name="mavenHomeTypeForPersistence" value="CUSTOM" />
         <option name="userSettingsFile" value="/usr/local/maven/apache-maven-3.8.6/conf/settings.xml" />
       </MavenGeneralSettings>
     </option>
@@ -106,9 +103,9 @@
     "project.structure.last.edited": "模块",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "settings.editor.selected.configurable": "preferences.sourceCode.Vue 模板",
     "spring.configuration.checksum": "b43fdd98b1fd705ae4c3a10cf25aad8a",
-    "ts.external.directory.path": "/Users/bloodymoon/Library/Application Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/233.15026.9/IntelliJ IDEA.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.3.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -136,7 +133,7 @@
       <recent name="$PROJECT_DIR$/frontend/src/assets" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.dev">
+  <component name="RunManager" selected="Spring Boot.BackendApplication">
     <configuration name="BackendApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="backend" />
       <extension name="coverage">
@@ -204,8 +201,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.dev" />
         <item itemvalue="Spring Boot.BackendApplication" />
+        <item itemvalue="npm.dev" />
         <item itemvalue="npm.build" />
         <item itemvalue="JUnit.BackendApplicationTests.mysqlDriver" />
         <item itemvalue="JUnit.BackendApplicationTests.contextLoads" />

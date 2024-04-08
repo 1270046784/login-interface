@@ -1,28 +1,66 @@
 <script setup>
 import { ref, watch, reactive } from 'vue'
-import { ElMenu, ElMenuItem, ElInput, ElAside, ElMain, ElContainer } from 'element-plus'
+import {ElMenu, ElMenuItem, ElInput, ElAside, ElMain, ElContainer, ElMessageBox, ElMessage} from 'element-plus'
 import { marked } from 'marked'
+import {useStore} from "@/stores/index.js";
+import {post} from "@/net/index.js";
 
 const markdownContent = ref('')
 const renderedMarkdown = ref('')
-
-// 假设的文件内容，实际应用中应从服务器获取
-const files = reactive({
-    '1': '# 文件1\n这是文件1的内容。',
-    '2': '# 文件2\n这是文件2的内容。'
-})
-
+const store = useStore()
+store.auth = JSON.parse(localStorage.getItem('auth'))
+const username = store.auth.user.username
+const userDir = store.auth.user.userDir
 const curFileIndex = ref(0)
-const fileCount = ref(10)
+
+const dialogVisible = ref(false)
+const dialogData = reactive({
+    title: ''
+})
 
 const getCurFile = index => {
     curFileIndex.value = index
 }
 
 const handleSelect = index => {
-    markdownContent.value = files[index] || ''
+    markdownContent.value = userDir[index - 1].text || ''
     renderedMarkdown.value = marked(markdownContent.value)
 }
+
+const createFile = () => {
+    dialogVisible.value = true;
+}
+
+const cancelNewFile = () => {
+    dialogData.title = '';
+    dialogVisible.value = false;
+}
+
+const confirmNewFile = () => {
+    if (dialogData.title.trim().length === 0) {
+        ElMessageBox.alert('标题不能为空', '提示');
+        return;
+    }
+    if (userDir.some(file => file.title === dialogData.title)) {
+        ElMessageBox.alert('标题已存在，请使用一个不同的标题', '错误');
+        return;
+    }
+    userDir.push({ title: dialogData.title, text: '' })
+    post('/api/user/create-file', {
+            username: username,
+            title: dialogData.title
+        }, message => {
+            ElMessage.success(message)
+        }
+    )
+    store.auth.user.userDir = userDir
+    localStorage.setItem('auth', JSON.stringify(store.auth))
+    dialogData.title = '';
+    dialogVisible.value = false;
+
+}
+
+
 
 // 监听编辑区变化，实时更新预览区
 watch(markdownContent, newValue => {
@@ -30,7 +68,7 @@ watch(markdownContent, newValue => {
 })
 
 // 初始化渲染第一个文件内容
-markdownContent.value = files['1']
+markdownContent.value = userDir[0].text
 renderedMarkdown.value = marked(markdownContent.value)
 </script>
 
@@ -39,22 +77,23 @@ renderedMarkdown.value = marked(markdownContent.value)
         <!-- 左侧文件列表 -->
         <el-aside width="240px" class="file-list">
             <div style="display: flex; justify-content: center; margin: 10px 10px">
-                <el-button type="success" style="width: 100%">新建</el-button>
+                <el-button @click="createFile" type="success" style="width: 100%">新建</el-button>
             </div>
             <el-menu style="margin-top: 10px" default-active="1" class="el-menu-vertical-demo" @select="handleSelect">
                 <el-menu-item
-                    v-for="index in fileCount"
+                    v-for="index in userDir.length"
                     :index="index.toString()"
                     :key="index"
                     @click="getCurFile"
                     :class="{'background-lightgreen': curFileIndex === index}">
                     <el-dropdown>
                         <span class="el-dropdown-link">
-                            文件{{ index }}<el-icon class="el-icon-arrow-down el-icon--right"></el-icon>
+                            {{ userDir[index - 1].title }}<el-icon class="el-icon-arrow-down el-icon--right"></el-icon>
                         </span>
 
                         <template #dropdown>
                             <el-dropdown-menu>
+                                <el-dropdown-item>重命名</el-dropdown-item>
                                 <el-dropdown-item>删除</el-dropdown-item>
                                 <el-dropdown-item>保存</el-dropdown-item>
                             </el-dropdown-menu>
@@ -79,6 +118,16 @@ renderedMarkdown.value = marked(markdownContent.value)
         <el-aside width="40%" class="markdown-preview">
             <div v-html="renderedMarkdown"></div>
         </el-aside>
+
+        <el-dialog v-model="dialogVisible" :show-close="false" style="width: 30%">
+            <el-input v-model="dialogData.title" placeholder="请输入文件标题"></el-input>
+            <div style="margin-top: 20px">
+                <span slot="footer" class="dialog-footer">
+                    <el-button type="danger" @click="cancelNewFile">取消</el-button>
+                    <el-button type="success" @click="confirmNewFile">确认</el-button>
+                </span>
+            </div>
+        </el-dialog>
     </el-container>
 </template>
 

@@ -51,8 +51,8 @@ public class SecurityConfiguration {
             HttpSecurity http,
             PersistentTokenRepository tokenRepository
     ) throws Exception {
-        http.
-                authorizeHttpRequests(auth -> auth
+        http
+                .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/**")
                         .permitAll()  // 放行服务器端请求
                 )  // 认证所有请求

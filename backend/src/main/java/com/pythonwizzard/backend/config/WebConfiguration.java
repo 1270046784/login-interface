@@ -16,7 +16,8 @@ public class WebConfiguration implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry
                 .addInterceptor(authorizeInterceptor)
-                .addPathPatterns("/**")  // 将拦截器添加在用户相关路由
-                .excludePathPatterns("/api/auth/**");  // 放行管理
+                .addPathPatterns("/api/user/info");  // 将拦截器添加在用户相关路由
+//                .excludePathPatterns("/api/**");  // 放行管理
     }
+
 }
