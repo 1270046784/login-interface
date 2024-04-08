@@ -11,14 +11,7 @@ const store = useStore()
 store.auth = JSON.parse(localStorage.getItem('auth'))
 const username = store.auth.user.username
 const userDir = store.auth.user.userDir
-const curFileIndex = ref(0)
-
-// const dialog = (visible, text) => {
-//     return reactive({
-//         visible: visible,
-//         text: text
-//     })
-// }
+const curIndex = ref(0)
 
 const createFileDialog = reactive({
     visible: false,
@@ -33,11 +26,12 @@ const removeFileDialog = reactive({
 })
 
 const getCurFile = index => {
-    curFileIndex.value = index
+    curIndex.value = index - 1
 }
 
 const handleSelect = index => {
-    markdownContent.value = userDir[index - 1].text || ''
+    getCurFile(index)
+    markdownContent.value = userDir[curIndex.value].text || ''
     renderedMarkdown.value = marked(markdownContent.value)
 }
 
@@ -47,7 +41,7 @@ const showDialog = dialog => {
 
 const showDialogAndChangeIndex = (dialog, index) => {
     showDialog(dialog)
-    curFileIndex.value = index - 1
+    curIndex.value = index - 1
 }
 
 const shutdownDialog = dialog => {
@@ -88,7 +82,7 @@ const confirmCreateFile = () => {
 }
 
 const confirmChangeTitle = () => {
-    let oldTitle = userDir[curFileIndex.value].title
+    let oldTitle = userDir[curIndex.value].title
     let newTitle = changeTitleDialog.text
     if (newTitle.trim().length === 0) {
         ElMessageBox.alert('标题不能为空', '提示')
@@ -102,7 +96,7 @@ const confirmChangeTitle = () => {
         ElMessageBox.alert('请不要使用原来的标题', '错误')
         return
     }
-    userDir[curFileIndex.value].title = changeTitleDialog.text
+    userDir[curIndex.value].title = changeTitleDialog.text
     post('/api/user/change-title', {
             username: username,
             oldTitle: oldTitle,
@@ -116,12 +110,12 @@ const confirmChangeTitle = () => {
 }
 
 const confirmRemoveFile = () => {
-    let title = userDir[curFileIndex.value].title
-    userDir.splice(curFileIndex.value, 1)
+    let title = userDir[curIndex.value].title
+    userDir.splice(curIndex.value, 1)
     if (userDir.length > 0) {
-        curFileIndex.value = Math.min(curFileIndex.value, userDir.length - 1);
+        curIndex.value = Math.min(curIndex.value, userDir.length - 1);
     } else {
-        curFileIndex.value = null;
+        curIndex.value = null;
     }
     post('/api/user/remove-file', {
             username: username,
@@ -136,8 +130,8 @@ const confirmRemoveFile = () => {
 
 // 监听编辑区变化，实时更新预览区并自动保存
 watch(markdownContent, newValue => {
-    let title = userDir[curFileIndex.value].title
-    let text = userDir[curFileIndex.value].text
+    let title = userDir[curIndex.value].title
+    let text = userDir[curIndex.value].text
     if (text.value !== newValue) {
         post('/api/user/save-file', {
             username: username,
@@ -146,14 +140,14 @@ watch(markdownContent, newValue => {
         }, () => {
 
         })
-        userDir[curFileIndex.value].text = newValue
+        userDir[curIndex.value].text = newValue
         updateLocalStorage()
         renderedMarkdown.value = marked(newValue)
     }
 })
 
 // 初始化渲染第一个文件内容
-markdownContent.value = userDir[curFileIndex.value].text
+markdownContent.value = userDir[curIndex.value].text
 renderedMarkdown.value = marked(markdownContent.value)
 </script>
 
@@ -170,7 +164,7 @@ renderedMarkdown.value = marked(markdownContent.value)
                     :index="index.toString()"
                     :key="index"
                     @click="getCurFile(index)"
-                    :class="{'background-lightgreen': curFileIndex === index}">
+                    :class="{'background-lightgreen': curIndex === index - 1}">
                     <el-dropdown>
                         <span class="el-dropdown-link">
                             {{ userDir[index - 1].title }}<el-icon class="el-icon-arrow-down el-icon--right"></el-icon>

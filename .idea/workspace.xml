@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba768bea-6d70-4b81-b75d-1bed1f24ea32" name="更改" comment="v0.4.0 修复了海量bug">
+    <list default="true" id="ba768bea-6d70-4b81-b75d-1bed1f24ea32" name="更改" comment="v0.5.0 完成了全部功能，接下来优化代码并美化界面">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/dao/UserDirDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/dao/UserDirDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/service/UserDirService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/service/UserDirService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/service/impl/UserDIrServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/pythonwizzard/backend/service/impl/UserDIrServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/pages/EditorPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/pages/EditorPage.vue" afterDir="false" />
     </list>
@@ -127,7 +123,7 @@
       <recent name="$PROJECT_DIR$/frontend/src/assets" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.dev">
+  <component name="RunManager" selected="Spring Boot.BackendApplication">
     <configuration name="BackendApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="backend" />
       <extension name="coverage">
@@ -195,8 +191,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.dev" />
         <item itemvalue="Spring Boot.BackendApplication" />
+        <item itemvalue="npm.dev" />
         <item itemvalue="npm.build" />
         <item itemvalue="JUnit.BackendApplicationTests.mysqlDriver" />
         <item itemvalue="JUnit.BackendApplicationTests.contextLoads" />
@@ -229,7 +225,7 @@
       <workItem from="1712060034350" duration="3000" />
       <workItem from="1712060044123" duration="16000" />
       <workItem from="1712060068515" duration="66969000" />
-      <workItem from="1712403266340" duration="27084000" />
+      <workItem from="1712403266340" duration="28208000" />
     </task>
     <task id="LOCAL-00001" summary="v0.1.1 配置登录借口，发送登录成功或失败json文件">
       <option name="closed" value="true" />
@@ -415,7 +411,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712507844632</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="v0.5.0 完成了全部功能，接下来优化代码并美化界面">
+      <option name="closed" value="true" />
+      <created>1712583873765</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1712583873765</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -452,7 +456,9 @@
     <MESSAGE value="v0.3.0 实现了全部功能" />
     <MESSAGE value="v0.3.1 修复了刷新页面资源无法保存前端auth信息的bug" />
     <MESSAGE value="v0.4.0 修复了海量bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="v0.4.0 修复了海量bug" />
+    <MESSAGE value="v0.4.2 完成新建文件的功能" />
+    <MESSAGE value="v0.5.0 完成了全部功能，接下来优化代码并美化界面" />
+    <option name="LAST_COMMIT_MESSAGE" value="v0.5.0 完成了全部功能，接下来优化代码并美化界面" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
