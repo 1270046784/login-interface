@@ -17,7 +17,7 @@ public interface UserDirDao {
     )
     void createDynamicTable(@Param("tableName") String tableName);
 
-    @Insert("insert into login.${tableName} (title, text) values ('hello', 'welcome to use Unnamed Markdown Editor')")
+    @Insert("insert into login.${tableName} (title, text) values ('unnamed', '')")
     void initUserDir(@Param("tableName") String tableName);
 
     @Select("select * from login.${tableName}")
@@ -39,7 +39,7 @@ public interface UserDirDao {
         String tableName = username + "_dir";
         try {
             createDynamicTable(tableName);
-//            initUserDir(tableName);
+            initUserDir(tableName);
         } catch (Exception ignored) {
 
         }

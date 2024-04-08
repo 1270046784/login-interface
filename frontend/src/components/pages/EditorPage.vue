@@ -4,6 +4,7 @@ import {ElMenu, ElMenuItem, ElInput, ElAside, ElMain, ElContainer, ElMessageBox,
 import { marked } from 'marked'
 import {useStore} from "@/stores/index.js";
 import {post} from "@/net/index.js";
+import {debounce} from "lodash";
 
 const markdownContent = ref('')
 const renderedMarkdown = ref('')
@@ -128,22 +129,23 @@ const confirmRemoveFile = () => {
     shutdownDialog(removeFileDialog)
 }
 
+// 设置延时进行防抖
+const saveFile = debounce(newValue => {
+    post('/api/user/save-file', {
+        username: username,
+        title: userDir[curIndex.value].title,
+        text: newValue
+    }, () => {
+
+    })
+    userDir[curIndex.value].text = newValue
+    updateLocalStorage()
+    renderedMarkdown.value = marked(newValue)
+}, 1000)
+
 // 监听编辑区变化，实时更新预览区并自动保存
 watch(markdownContent, newValue => {
-    let title = userDir[curIndex.value].title
-    let text = userDir[curIndex.value].text
-    if (text.value !== newValue) {
-        post('/api/user/save-file', {
-            username: username,
-            title: title,
-            text: text
-        }, () => {
-
-        })
-        userDir[curIndex.value].text = newValue
-        updateLocalStorage()
-        renderedMarkdown.value = marked(newValue)
-    }
+    saveFile(newValue)
 })
 
 // 初始化渲染第一个文件内容
