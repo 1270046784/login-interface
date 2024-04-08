@@ -82,6 +82,7 @@ public class SecurityConfiguration {
 
     /**
      * 建立数据库令牌仓库
+     *
      * @return 数据库令牌仓库
      */
     @Bean
@@ -94,11 +95,12 @@ public class SecurityConfiguration {
 
     /**
      * 允许前端跨域请求
+     *
      * @return 允许跨域的资源
      */
     private CorsConfigurationSource configurationSource() {
         CorsConfiguration cors = new CorsConfiguration();
-        cors.addAllowedOriginPattern("http://" + frontendHost  + ":5173");
+        cors.addAllowedOriginPattern("http://" + frontendHost + ":5173");
         cors.setAllowCredentials(true);
         cors.addAllowedHeader("*");
         cors.addAllowedMethod("*");
@@ -121,6 +123,7 @@ public class SecurityConfiguration {
 
     /**
      * 对密码进行编码
+     *
      * @return 编码后的密码
      */
     @Bean

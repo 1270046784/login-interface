@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class UserDIrServiceImpl implements UserDirService {
+public class UserDirServiceImpl implements UserDirService {
 
     @Resource
     private UserDirDao userDirDao;
